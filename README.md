@@ -15,6 +15,8 @@
         password: password
 
 ## Assumptions
+- The tickets have two status. They are "pending and completed"
+- While creating the ticket create an account for the customer.
 
 
 
