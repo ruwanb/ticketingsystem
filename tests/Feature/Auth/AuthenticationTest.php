@@ -8,8 +8,10 @@ test('login screen can be rendered', function () {
     $response->assertStatus(200);
 });
 
-test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+test('agent can authenticate using the login screen', function () {
+    $user = User::factory()->create([
+        'is_agent' => 1,
+    ]);
 
     $response = $this->post('/login', [
         'email' => $user->email,
@@ -17,10 +19,10 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('agent.dashboard', absolute: false));
 });
 
-test('users can not authenticate with invalid password', function () {
+test('agent can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
     $this->post('/login', [
