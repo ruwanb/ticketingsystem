@@ -18,6 +18,10 @@
 - The tickets have two status. They are "pending and completed"
 - While creating the ticket create an account for the customer.
 
+## Packages used
+- Laravel Breeze starter kit
+- Laravel Livewire v3
+
 
 
 
